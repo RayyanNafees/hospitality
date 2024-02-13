@@ -1,6 +1,7 @@
 # Hospitality - Hospital Management App
 
 ## Modules
+
 1. [Patient Management](/docs/patient.md)
 1. [Appointment Scheduling](/docs/appointment.md)
 1. [Electronic Medical Records (EMR)](/docs/emr.md)
@@ -16,7 +17,9 @@
 1. [Feedback & Survey Management](/docs/feedback.md)
     - Collecting Patient Feedback
     - Satisfaction Surveys
+
 ## Tech Stack
+
 - Firebase
 - React
 - PandaCSS
