@@ -3,9 +3,9 @@
 ## Modules
 
 1. [Patient Management](patient.md)
-1. [Appointment Scheduling](appointment.md)
-1. [Electronic Medical Records (EMR)](emr.md)
-1. [Billing & Invoicing](billing.md)
+1. [**Appointment Scheduling**](appointment.md)*
+1. [**Electronic Medical Records (EMR)**](emr.md)*
+1. [**Billing & Invoicing**](billing.md)*
 1. [Inventory Management](inventory.md)
 1. [Staff Management](staff.md)
 1. [Pharmacy Management](pharmacy.md)
@@ -13,7 +13,7 @@
 1. [Electronic Prescribing](prescription.md)
 1. [Patient Portals](patient-portal.md)
 1. [Reporting & Analytics](reports.md)
-1. [Emergency Management](emergency.md)
-1. [Feedback & Survey Management](feedback.md)
+1. [**Emergency Management**](emergency.md)*
+1. [**Feedback & Survey Management**](feedback.md)*
     - Collecting Patient Feedback
     - Satisfaction Surveys
