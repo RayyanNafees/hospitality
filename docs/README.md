@@ -1,4 +1,4 @@
-# Hospitality - Hospital Management App
+# Hospitality
 
 ## Modules
 
