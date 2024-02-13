@@ -16,3 +16,8 @@
 1. [Feedback & Survey Management](docs/feedback.md)
     - Collecting Patient Feedback
     - Satisfaction Surveys
+## Tech Stack
+- Firebase
+- React
+- PandaCSS
+- ShadCN/UI
