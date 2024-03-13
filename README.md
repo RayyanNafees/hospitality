@@ -20,7 +20,8 @@
 
 ## Tech Stack
 
-- Firebase
-- React
-- PandaCSS
-- ShadCN/UI
+- [Pocketbase](https://pocketbase.io/docs)
+- [React](https://million.dev)
+- [PicoCSS](https://picocss.com)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [SWR](https://swr.vercel.app)
