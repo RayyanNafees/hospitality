@@ -24,7 +24,7 @@
 - Allergies and past surgeries
 - Current medications
 
-## ~~Facility Management:~~
+## Facility Management:
 
 - Facility ID
 - Facility name
@@ -33,12 +33,12 @@
 - Equipment inventory and maintenance schedules
 - Utility usage and expenses
 
-## ~~Staff Management:~~
+## Staff Management:
 
 - Staff ID
 - Name
 - Position/title
-- Department/Unit
+- [Department/Unit](departments.md)
 - Contact Information
 - Shift schedules
 - Qualifications and certifications
