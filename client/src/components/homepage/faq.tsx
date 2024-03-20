@@ -1,13 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
-const faqs = [
+const faqs = Array(6).fill(
   {
     id: 1,
     question: "What's the best thing about Switzerland?",
     answer:
       "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
+  }
   // More questions...
-]
+)
 
 export default function Example() {
   return (
@@ -35,7 +35,7 @@ export default function Example() {
 
         <dl className='mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3'>
           {faqs.map((faq) => (
-            <div key={faq.id}>
+            <div key={crypto.randomUUID()}>
               <dt className='text-base font-medium text-gray-900'>
                 {faq.question}
               </dt>

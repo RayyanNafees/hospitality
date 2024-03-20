@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-const people = [
+const people = Array(6).fill(
   {
     name: 'Michael Foster',
     role: 'Co-Founder / CTO',
@@ -7,8 +7,7 @@ const people = [
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
   },
   // More people...
-]
-
+)
 export default function Example() {
   return (
     <div className='bg-white'>
@@ -25,12 +24,13 @@ export default function Example() {
           </div>
           <ul className='mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6'>
             {people.map((person) => (
-              <li key={person.name}>
+              <li key={crypto.randomUUID()}>
                 <div className='space-y-4'>
                   <img
                     className='mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24'
                     src={person.imageUrl}
                     alt=''
+                    loading='lazy'
                   />
                   <div className='space-y-2'>
                     <div className='text-xs font-medium lg:text-sm'>
