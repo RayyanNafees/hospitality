@@ -7,7 +7,7 @@ import million from 'million/compiler'
 export default defineConfig({
   build : {
     outDir: '../docs',
-    emptyOutDir: true
+    emptyOutDir: true,
   },
   plugins: [million.vite({ auto: true }), react()],
   
