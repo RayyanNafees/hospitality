@@ -1,15 +1,17 @@
 /* This example requires Tailwind CSS v2.0+ */
-const faqs = Array(6).fill(
-  {
-    id: 1,
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  }
-  // More questions...
-)
+import useSWR from 'swr'
+
+const fetcher = async (url: string) =>
+  await fetch(import.meta.env.VITE_PB_URL + url)
+    .then((r) => r.json())
+    .then((data) => data.items)
 
 export default function FAQ() {
+  const { isLoading, error, data } = useSWR(
+    '/api/collections/site_faq/records',
+    fetcher
+  )
+
   return (
     <section aria-labelledby='faq-heading' className='bg-white'>
       <div className='max-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
@@ -33,16 +35,18 @@ export default function FAQ() {
           </p>
         </div>
 
-        <dl className='mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3'>
-          {faqs.map((faq) => (
-            <div key={crypto.randomUUID()}>
-              <dt className='text-base font-medium text-gray-900'>
-                {faq.question}
-              </dt>
-              <dd className='mt-3 text-sm text-gray-500'>{faq.answer}</dd>
-            </div>
-          ))}
-        </dl>
+        {error ? null : isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <dl className='mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3'>
+            {data.map((faq: { Q: string; A: string }) => (
+              <div key={faq.Q}>
+                <dt className='text-base font-medium text-gray-900'>{faq.Q}</dt>
+                <dd className='mt-3 text-sm text-gray-500'>{faq.A}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </div>
     </section>
   )

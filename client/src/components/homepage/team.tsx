@@ -1,13 +1,24 @@
+import { z } from 'zod'
+import data from '../../../../server/seed/staff.json'
+// import useSWR from 'swr'
 /* This example requires Tailwind CSS v2.0+ */
-const people = Array(6).fill(
-  {
-    name: 'Michael Foster',
-    role: 'Co-Founder / CTO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-  },
-  // More people...
-)
+
+const peopleSchema = z
+  .object({
+    avatar: z.string(),
+    name: z.string(),
+    role: z.string(),
+    username: z.string(),
+  })
+  .array()
+
+type People = z.infer<typeof peopleSchema>
+
+const people: People = peopleSchema.parse(data)
+
+const staffSiteUrl =
+  'https://www.amu.ac.in/miscellaneous/jawaharlal-nehru-medical-college-hospital/staff-members'
+
 export default function Team() {
   return (
     <div className='bg-white'>
@@ -22,13 +33,17 @@ export default function Team() {
               ridiculus fusce amet urna nunc. Ut nisl ornare diam in.
             </p>
           </div>
+
           <ul className='mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6'>
-            {people.map((person) => (
-              <li key={crypto.randomUUID()}>
-                <div className='space-y-4'>
+            {people.slice(0,10).map((person) => (
+              <li key={person.username}>
+                <a
+                  className='space-y-4 block'
+                  href={`${staffSiteUrl}/${person.username}`}
+                >
                   <img
                     className='mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24'
-                    src={person.imageUrl}
+                    src={person.avatar}
                     alt=''
                     loading='lazy'
                   />
@@ -38,7 +53,7 @@ export default function Team() {
                       <p className='text-indigo-600'>{person.role}</p>
                     </div>
                   </div>
-                </div>
+                </a>
               </li>
             ))}
           </ul>
