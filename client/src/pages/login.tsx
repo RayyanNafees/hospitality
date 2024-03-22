@@ -14,7 +14,7 @@
   }
   ```
 */
-export default function Example() {
+export default function Login() {
   return (
     <>
       {/*
@@ -40,7 +40,7 @@ export default function Example() {
               <p className='mt-2 text-sm text-gray-600'>
                 Or{' '}
                 <a
-                  href='/'
+                  href='/dashboard'
                   className='font-medium text-indigo-600 hover:text-indigo-500'
                 >
                   start your 14-day free trial
@@ -58,7 +58,7 @@ export default function Example() {
                   <div className='mt-1 grid grid-cols-3 gap-3'>
                     <div>
                       <a
-                        href='/'
+                        href='/dashboard'
                         className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
                       >
                         <span className='sr-only'>Sign in with Facebook</span>
@@ -79,7 +79,7 @@ export default function Example() {
 
                     <div>
                       <a
-                        href='/'
+                        href='/dashboard'
                         className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
                       >
                         <span className='sr-only'>Sign in with Twitter</span>
@@ -96,7 +96,7 @@ export default function Example() {
 
                     <div>
                       <a
-                        href='/'
+                        href='/dashboard'
                         className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
                       >
                         <span className='sr-only'>Sign in with GitHub</span>
@@ -133,7 +133,7 @@ export default function Example() {
               </div>
 
               <div className='mt-6'>
-                <form action='#' method='POST' className='space-y-6'>
+                <form action='/dashboard' method='GET' className='space-y-6'>
                   <div>
                     <label
                       htmlFor='email'
@@ -190,7 +190,7 @@ export default function Example() {
 
                     <div className='text-sm'>
                       <a
-                        href='/'
+                        href='/dashboard'
                         className='font-medium text-indigo-600 hover:text-indigo-500'
                       >
                         Forgot your password?

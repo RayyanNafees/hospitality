@@ -14,7 +14,7 @@
   }
   ```
 */
-export default function Example() {
+export default function CTA() {
   return (
     <div className='bg-white'>
       <div className='max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8'>
@@ -22,18 +22,18 @@ export default function Example() {
           <div className='pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20'>
             <div className='lg:self-center'>
               <h2 className='text-3xl font-extrabold text-white sm:text-4xl'>
-                <span className='block'>Ready to dive in?</span>
-                <span className='block'>Start your free trial today.</span>
+                <span className='block'>Make your management easy</span>
+                <span className='block'>Start your admin panel today.</span>
               </h2>
               <p className='mt-4 text-lg leading-6 text-indigo-200'>
                 Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
                 Malesuada adipiscing sagittis vel nulla nec.
               </p>
               <a
-                href='/'
+                href='/signup'
                 className='mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-indigo-600 hover:bg-indigo-50'
               >
-                Sign up for free
+                SignUp to Admin Panel
               </a>
             </div>
           </div>

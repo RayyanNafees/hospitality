@@ -26,7 +26,7 @@ const metrics = [
   },
 ]
 
-export default function Example() {
+export default function Stats() {
   return (
     <div className='relative bg-gray-900'>
       <div className='h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full'>

@@ -9,7 +9,7 @@ const faqs = Array(6).fill(
   // More questions...
 )
 
-export default function Example() {
+export default function FAQ() {
   return (
     <section aria-labelledby='faq-heading' className='bg-white'>
       <div className='max-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>

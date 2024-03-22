@@ -46,7 +46,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example(props: React.PropsWithChildren) {
+export default function SideNav(props: React.PropsWithChildren) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
