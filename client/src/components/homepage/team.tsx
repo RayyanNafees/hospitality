@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import data from '../../../../server/seed/staff.json'
+import data from '../../assets/data/staff.json'
 // import useSWR from 'swr'
 /* This example requires Tailwind CSS v2.0+ */
 
