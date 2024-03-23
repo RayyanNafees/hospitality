@@ -35,7 +35,7 @@ export default function Team() {
           </div>
 
           <ul className='mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6'>
-            {people.slice(0,10).map((person) => (
+            {people.slice(0,10).map((person : People[number]) => (
               <li key={person.username}>
                 <a
                   className='space-y-4 block'
