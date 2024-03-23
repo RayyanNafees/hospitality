@@ -1,4 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
+import useSWR from "swr";
 const faqs = [
   {
     id: 1,
@@ -41,7 +42,17 @@ const faqs = [
   // More questions...
 ];
 
-export default function Example() {
+const fetcher = async (url: string) =>
+  await fetch(import.meta.env.VITE_PB_URL + url)
+    .then((r) => r.json())
+    .then((data) => data.items);
+
+export default function FAQ() {
+  const { isLoading, error, data } = useSWR(
+    "/api/collections/site_faq/records",
+    fetcher
+  );
+
   return (
     <section aria-labelledby="faq-heading" className="bg-white">
       <div className="max-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -65,6 +76,18 @@ export default function Example() {
           </p>
         </div>
 
+        {error ? null : isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <dl className="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
+            {data.map((faq: { Q: string; A: string }) => (
+              <div key={faq.Q}>
+                <dt className="text-base font-medium text-gray-900">{faq.Q}</dt>
+                <dd className="mt-3 text-sm text-gray-500">{faq.A}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
         <dl className="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
           {faqs.map((faq) => (
             <div key={crypto.randomUUID()}>

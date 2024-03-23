@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 
-export default function Example() {
+export default function SubHero() {
   return (
     <div className="bg-gray-50">
       <div className="relative overflow-hidden">
