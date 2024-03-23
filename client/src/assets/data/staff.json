@@ -126,5 +126,21 @@
     "username": "ateeq-ahmad-6",
     "email": "",
     "phone": "7417391149"
+  },
+  {
+    "avatar": "https://api.amu.ac.in/storage/images/default-img.png",
+    "name": " Ms. Nisar  Jahan ",
+    "role": "Ward Sister",
+    "username": "nisaar-jahan",
+    "email": "",
+    "phone": "8791882557"
+  },
+  {
+    "avatar": "https://api.amu.ac.in/storage//images/empphoto/10079033-1648635410.jpg",
+    "name": " Mr. Mohd  Arif ",
+    "role": "Nursing Officer",
+    "username": "mohd-arif-37",
+    "email": "",
+    "phone": "9027505703"
   }
 ]

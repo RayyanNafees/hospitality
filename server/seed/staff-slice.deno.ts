@@ -1,7 +1,7 @@
 import staff from './staff.json'	with {type: 'json'}	
 
 const SLICE_START = 0
-const SLICE_END = 16
+const SLICE_END = 18
 
 const slice = (
   json: Array<Record<string, string>>,
@@ -14,10 +14,8 @@ const slice = (
 
 const slicedStaff = slice(staff)
 
-
+// @ts-ignore
 Deno.writeTextFile(
   `staff-${SLICE_END - SLICE_START}.json`,
   JSON.stringify(slicedStaff)
 )
-
-export { slice }
