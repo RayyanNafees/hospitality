@@ -4,7 +4,7 @@ import Home from './pages/home'
 import Login from './pages/login'
 import SignUp from './pages/signup'
 import Dashboard from './pages/dashboard'
-import Settings from './pages/dashboard_settings'
+import Settings from './pages/dashboard/settings'
 
 export default function App() {
   return (

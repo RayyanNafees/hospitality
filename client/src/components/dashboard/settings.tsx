@@ -16,7 +16,7 @@
 */
 export default function Settings() {
     return (
-      <form className="space-y-8 divide-y divide-gray-200">
+      <form className="space-y-8 divide-y divide-gray-200 ml-5">
         <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
           <div>
             <div>

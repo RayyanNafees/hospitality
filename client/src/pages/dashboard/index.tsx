@@ -1,4 +1,4 @@
-import SideNav from '../layouts/sidenav'
+import SideNav from '../../layouts/sidenav'
 /*
   This example requires Tailwind CSS v2.0+ 
   
