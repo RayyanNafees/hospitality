@@ -1,20 +1,14 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+import Pocketbase from 'pocketbase'
+
+const pb = new Pocketbase(import.meta.env.VITE_PB_URL)
+
 export default function Login() {
+  const handleLogin = async () => {
+    const authData = await pb
+      .collection('users')
+      .authWithOAuth2({ provider: 'github' })
+    console.log(authData)
+  }
   return (
     <>
       {/*
@@ -35,7 +29,7 @@ export default function Login() {
                 alt='Workflow'
               />
               <h2 className='mt-6 text-3xl font-extrabold text-gray-900'>
-                Sign in to your account
+                Sign in to your account wow !
               </h2>
               <p className='mt-2 text-sm text-gray-600'>
                 Or{' '}
@@ -94,7 +88,12 @@ export default function Login() {
                       </a>
                     </div>
 
-                    <div>
+                    <div
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleLogin()
+                      }}
+                    >
                       <a
                         href='/dashboard'
                         className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
@@ -199,7 +198,8 @@ export default function Login() {
                   </div>
 
                   <div>
-                    <a href='/signin'
+                    <a
+                      href='/signin'
                       type='submit'
                       className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     >

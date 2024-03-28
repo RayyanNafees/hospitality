@@ -2,7 +2,7 @@ import './App.css'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './pages/home'
 import Login from './pages/login'
-import SignUp from './pages/signup'
+//import SignUp from './pages/signup'
 import Dashboard from './pages/dashboard'
 
 export default function App() {
@@ -15,8 +15,8 @@ export default function App() {
         <Route path='/about' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signin' element={<Login />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/register' element={<SignUp />} />
+        <Route path='/signup' element={<Login />} />
+        <Route path='/register' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
