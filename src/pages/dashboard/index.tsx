@@ -1,4 +1,4 @@
-import SideNav from '../layouts/sidenav'
+//import SideNav from '../layouts/sidenav'
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -70,7 +70,7 @@ const transactions: Transaction[] = [
 ]
 export default function Dashboard() {
   return (
-    <SideNav>
+    <>
       <main className='flex-1 pb-8'>
         {/* Page header */}
         <div className='bg-white shadow'>
@@ -345,6 +345,6 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
-    </SideNav>
+    </>
   )
 }

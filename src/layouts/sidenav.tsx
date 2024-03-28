@@ -63,7 +63,9 @@ const secondaryNavigation = [
   { name: 'Privacy', href: '#', icon: ShieldCheckIcon },
 ]
 
-export default function SideNav({ children }: React.PropsWithChildren) {
+import { Outlet } from 'react-router-dom'
+
+export default function SideNav() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -359,7 +361,7 @@ export default function SideNav({ children }: React.PropsWithChildren) {
               </div>
             </div>
           </div>
-          {children}
+         <Outlet />
         </div>
       </div>
     </>

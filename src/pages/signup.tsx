@@ -1,20 +1,49 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-export default function Example() {
+import Pocketbase from 'pocketbase'
+//import { useLocation } from 'react-router-dom'
+const pb = new Pocketbase(import.meta.env.VITE_PB_URL)
+
+const handleGithubSignup = async () => {
+  const authData = await pb
+    .collection('users')
+    .authWithOAuth2({ provider: 'github' })
+  console.log(authData)
+}
+
+const handleGoogleSignup = async () => {
+  const authData = await pb
+    .collection('users')
+    .authWithOAuth2({ provider: 'google' })
+  console.log(authData)
+}
+
+const handleFacebookSignup = async () => {
+  const authData = await pb
+    .collection('users')
+    .authWithOAuth2({ provider: 'facebook' })
+  console.log(authData)
+}
+
+// interface DataType {
+//   username: string
+//   email: string
+//   emailVisibility: boolean
+//   password: string
+//   passwordConfirm: string
+//   name: string
+//   is_patient: boolean
+//   phone: number
+// }
+// const handleSign = async (data: DataType) => {
+//   data.emailVisibility = true
+//   const record = await pb.collection('users').create(data)
+
+//   console.log({ record })
+
+//   // (optional) send an email verification request
+//   await pb.collection('users').requestVerification(data.email)
+// }
+
+export default function SignUp() {
   return (
     <>
       {/*
@@ -35,15 +64,15 @@ export default function Example() {
                 alt='Workflow'
               />
               <h2 className='mt-6 text-3xl font-extrabold text-gray-900'>
-                Sign in to your account
+                Create your account
               </h2>
               <p className='mt-2 text-sm text-gray-600'>
                 Or{' '}
                 <a
-                  href='/'
+                  href='/login'
                   className='font-medium text-indigo-600 hover:text-indigo-500'
                 >
-                  start your 14-day free trial
+                  Sign in to your existing account
                 </a>
               </p>
             </div>
@@ -56,11 +85,11 @@ export default function Example() {
                   </p>
 
                   <div className='mt-1 grid grid-cols-3 gap-3'>
-                    <div>
-                      <a
-                        href='/'
-                        className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
-                      >
+                    <div
+                      onClick={handleFacebookSignup}
+                      onKeyDown={handleFacebookSignup}
+                    >
+                      <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <span className='sr-only'>Sign in with Facebook</span>
                         <svg
                           className='w-5 h-5'
@@ -74,31 +103,30 @@ export default function Example() {
                             clipRule='evenodd'
                           />
                         </svg>
-                      </a>
+                      </span>
                     </div>
 
-                    <div>
-                      <a
-                        href='/'
-                        className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
-                      >
-                        <span className='sr-only'>Sign in with Twitter</span>
+                    <div
+                      onClick={handleGoogleSignup}
+                      onKeyDown={handleGoogleSignup}
+                    >
+                      <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <svg
+                          viewBox='0 0 210 210'
                           className='w-5 h-5'
                           aria-hidden='true'
                           fill='currentColor'
-                          viewBox='0 0 20 20'
                         >
-                          <path d='M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84' />
+                          <path d='M0,105C0,47.103,47.103,0,105,0c23.383,0,45.515,7.523,64.004,21.756l-24.4,31.696C133.172,44.652,119.477,40,105,40  c-35.841,0-65,29.159-65,65s29.159,65,65,65c28.867,0,53.398-18.913,61.852-45H105V85h105v20c0,57.897-47.103,105-105,105  S0,162.897,0,105z' />
                         </svg>
-                      </a>
+                      </span>
                     </div>
 
-                    <div>
-                      <a
-                        href='/'
-                        className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
-                      >
+                    <div
+                      onClick={handleGithubSignup}
+                      onKeyDown={handleGithubSignup}
+                    >
+                      <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <span className='sr-only'>Sign in with GitHub</span>
                         <svg
                           className='w-5 h-5'
@@ -112,7 +140,7 @@ export default function Example() {
                             clipRule='evenodd'
                           />
                         </svg>
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -133,7 +161,7 @@ export default function Example() {
               </div>
 
               <div className='mt-6'>
-                <form action='#' method='POST' className='space-y-6'>
+                <form action='/dashboard' method='GET' className='space-y-6'>
                   <div>
                     <label
                       htmlFor='email'
@@ -199,12 +227,13 @@ export default function Example() {
                   </div>
 
                   <div>
-                    <button
+                    <a
+                      href='/login'
                       type='submit'
                       className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     >
                       Sign in
-                    </button>
+                    </a>
                   </div>
                 </form>
               </div>

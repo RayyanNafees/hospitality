@@ -19,7 +19,7 @@ const handleGoogleLogin = async () => {
 const handleFacebookLogin = async () => {
   const authData = await pb
     .collection('users')
-    .authWithOAuth2({ provider: 'facebook'})
+    .authWithOAuth2({ provider: 'facebook' })
   console.log(authData)
 }
 
@@ -49,10 +49,10 @@ export default function Login() {
               <p className='mt-2 text-sm text-gray-600'>
                 Or{' '}
                 <a
-                  href='/dashboard'
+                  href='/signup'
                   className='font-medium text-indigo-600 hover:text-indigo-500'
                 >
-                  start your 14-day free trial
+                  Create an account
                 </a>
               </p>
             </div>
@@ -66,15 +66,10 @@ export default function Login() {
 
                   <div className='mt-1 grid grid-cols-3 gap-3'>
                     <div
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleFacebookLogin()
-                      }}
+                      onClick={handleFacebookLogin}
+                      onKeyDown={handleFacebookLogin}
                     >
-                      <a
-                        href='/dashboard'
-                        className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
-                      >
+                      <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <span className='sr-only'>Sign in with Facebook</span>
                         <svg
                           className='w-5 h-5'
@@ -88,19 +83,14 @@ export default function Login() {
                             clipRule='evenodd'
                           />
                         </svg>
-                      </a>
+                      </span>
                     </div>
 
                     <div
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleGoogleLogin()
-                      }}
+                      onClick={handleGoogleLogin}
+                      onKeyDown={handleGoogleLogin}
                     >
-                      <a
-                        href='/dashboard'
-                        className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
-                      >
+                      <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <svg
                           viewBox='0 0 210 210'
                           className='w-5 h-5'
@@ -109,19 +99,14 @@ export default function Login() {
                         >
                           <path d='M0,105C0,47.103,47.103,0,105,0c23.383,0,45.515,7.523,64.004,21.756l-24.4,31.696C133.172,44.652,119.477,40,105,40  c-35.841,0-65,29.159-65,65s29.159,65,65,65c28.867,0,53.398-18.913,61.852-45H105V85h105v20c0,57.897-47.103,105-105,105  S0,162.897,0,105z' />
                         </svg>
-                      </a>
+                      </span>
                     </div>
 
                     <div
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleGithubLogin()
-                      }}
+                      onClick={handleGithubLogin}
+                      onKeyDown={handleGithubLogin}
                     >
-                      <a
-                        href='/dashboard'
-                        className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
-                      >
+                      <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <span className='sr-only'>Sign in with GitHub</span>
                         <svg
                           className='w-5 h-5'
@@ -135,7 +120,7 @@ export default function Login() {
                             clipRule='evenodd'
                           />
                         </svg>
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -223,7 +208,7 @@ export default function Login() {
 
                   <div>
                     <a
-                      href='/signin'
+                      href='/login'
                       type='submit'
                       className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     >
