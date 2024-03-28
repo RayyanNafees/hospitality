@@ -2,13 +2,28 @@ import Pocketbase from 'pocketbase'
 
 const pb = new Pocketbase(import.meta.env.VITE_PB_URL)
 
+const handleGithubLogin = async () => {
+  const authData = await pb
+    .collection('users')
+    .authWithOAuth2({ provider: 'github' })
+  console.log(authData)
+}
+
+const handleGoogleLogin = async () => {
+  const authData = await pb
+    .collection('users')
+    .authWithOAuth2({ provider: 'google' })
+  console.log(authData)
+}
+
+const handleFacebookLogin = async () => {
+  const authData = await pb
+    .collection('users')
+    .authWithOAuth2({ provider: 'facebook' })
+  console.log(authData)
+}
+
 export default function Login() {
-  const handleLogin = async () => {
-    const authData = await pb
-      .collection('users')
-      .authWithOAuth2({ provider: 'github' })
-    console.log(authData)
-  }
   return (
     <>
       {/*
@@ -50,7 +65,12 @@ export default function Login() {
                   </p>
 
                   <div className='mt-1 grid grid-cols-3 gap-3'>
-                    <div>
+                    <div
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleFacebookLogin()
+                      }}
+                    >
                       <a
                         href='/dashboard'
                         className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
@@ -71,7 +91,12 @@ export default function Login() {
                       </a>
                     </div>
 
-                    <div>
+                    <div
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleGoogleLogin()
+                      }}
+                    >
                       <a
                         href='/dashboard'
                         className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
@@ -91,7 +116,7 @@ export default function Login() {
                     <div
                       onClick={(e) => {
                         e.preventDefault()
-                        handleLogin()
+                        handleGithubLogin()
                       }}
                     >
                       <a
