@@ -1,27 +1,9 @@
-import Pocketbase from 'pocketbase'
+import Pocketbase, { type OAuth2AuthConfig } from 'pocketbase'
 //import { useLocation } from 'react-router-dom'
 const pb = new Pocketbase(import.meta.env.VITE_PB_URL)
 
-const handleGithubSignup = async () => {
-  const authData = await pb
-    .collection('users')
-    .authWithOAuth2({ provider: 'github' })
-  console.log(authData)
-}
-
-const handleGoogleSignup = async () => {
-  const authData = await pb
-    .collection('users')
-    .authWithOAuth2({ provider: 'google' })
-  console.log(authData)
-}
-
-const handleFacebookSignup = async () => {
-  const authData = await pb
-    .collection('users')
-    .authWithOAuth2({ provider: 'facebook' })
-  console.log(authData)
-}
+const handleOauth = (provider: OAuth2AuthConfig['provider']) => () =>
+  pb.collection('users').authWithOAuth2({ provider })
 
 // interface DataType {
 //   username: string
@@ -86,8 +68,8 @@ export default function SignUp() {
 
                   <div className='mt-1 grid grid-cols-3 gap-3'>
                     <div
-                      onClick={handleFacebookSignup}
-                      onKeyDown={handleFacebookSignup}
+                      onClick={handleOauth('facebook')}
+                      onKeyDown={handleOauth('facebook')}
                     >
                       <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <span className='sr-only'>Sign in with Facebook</span>
@@ -107,8 +89,8 @@ export default function SignUp() {
                     </div>
 
                     <div
-                      onClick={handleGoogleSignup}
-                      onKeyDown={handleGoogleSignup}
+                      onClick={handleOauth('google')}
+                      onKeyDown={handleOauth('google')}
                     >
                       <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <svg
@@ -123,8 +105,8 @@ export default function SignUp() {
                     </div>
 
                     <div
-                      onClick={handleGithubSignup}
-                      onKeyDown={handleGithubSignup}
+                      onClick={handleOauth('github')}
+                      onKeyDown={handleOauth('github')}
                     >
                       <span className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'>
                         <span className='sr-only'>Sign in with GitHub</span>
