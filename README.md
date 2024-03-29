@@ -89,3 +89,11 @@
 - Author/Creator
 - Recipient
 - Signature (for medical reports)
+## Requirements by JNMC
+- npo. of beds
+- ICUs
+- gynalcology
+- pathology
+- patients count
+- general ward
+- ventillators free 
