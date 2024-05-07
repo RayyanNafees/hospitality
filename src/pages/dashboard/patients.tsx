@@ -1,5 +1,5 @@
 import { cx as classNames } from "classix";
-
+import type React from "react";
 import { ScaleIcon, OfficeBuildingIcon } from "@heroicons/react/outline";
 import {
 	CashIcon,
@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/solid";
 import Topcard from "@/components/dashboard/topcard.tsx";
 import { Link } from "react-router-dom";
-
+import type {Transaction, TopCard} from '@/lib/dashboard'
 const cards = [
 	{
 		title: "Available ICUs",
@@ -25,16 +25,6 @@ const statusStyles = {
 	failed: "bg-gray-100 text-gray-800",
 };
 
-export type Transaction = {
-	id: string | number;
-	name: string;
-	href: string;
-	amount: string;
-	status: keyof typeof statusStyles;
-	currency: string;
-	date: string;
-	datetime: string;
-};
 const transactions: Transaction[] = [
 	{
 		id: 1,
@@ -51,16 +41,11 @@ const transactions: Transaction[] = [
 
 type DashboardFC = React.FC<{
 	tableRows?: Transaction[];
-	statuses?: typeof statusStyles;
-	topcards?: typeof cards;
+	topcards?: TopCard[];
 }>;
 
-const Dashboard: DashboardFC = (props) => {
-	const {
-		tableRows = transactions,
-		statuses = statusStyles,
-		topcards = cards,
-	} = props;
+const Patients: DashboardFC = (props) => {
+	const { tableRows = transactions, topcards = cards } = props;
 
 	return (
 		<>
@@ -253,7 +238,7 @@ const Dashboard: DashboardFC = (props) => {
 													<td className="hidden px-6 py-4 text-sm text-gray-500 whitespace-nowrap md:block">
 														<span
 															className={classNames(
-																statuses[transaction.status],
+																statusStyles[transaction.status],
 																"inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize",
 															)}
 														>
@@ -306,4 +291,4 @@ const Dashboard: DashboardFC = (props) => {
 	);
 };
 
-export default Dashboard;
+export default Patients;

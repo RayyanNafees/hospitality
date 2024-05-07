@@ -16,11 +16,11 @@
 */
 export default function Settings() {
   return (
-    <form className='space-y-8 divide-y divide-gray-200 ml-5'>
+    <form className='mt-5 ml-5 space-y-8 divide-y divide-gray-200'>
       <div className='space-y-8 divide-y divide-gray-200 sm:space-y-5'>
         <div>
           <div>
-            <h3 className='text-lg leading-6 font-medium text-gray-900'>
+            <h3 className='text-lg font-medium leading-6 text-gray-900'>
               Profile
             </h3>
             <p className='mt-1 max-w-2xl text-sm text-gray-500'>
@@ -29,7 +29,7 @@ export default function Settings() {
             </p>
           </div>
 
-          <div className='mt-6 sm:mt-5 space-y-6 sm:space-y-5'>
+          <div className='mt-6 space-y-6 sm:mt-5 sm:space-y-5'>
             <div className='sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5'>
               <label
                 htmlFor='username'
@@ -38,8 +38,8 @@ export default function Settings() {
                 Username
               </label>
               <div className='mt-1 sm:mt-0 sm:col-span-2'>
-                <div className='max-w-lg flex rounded-md shadow-sm'>
-                  <span className='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm'>
+                <div className='flex max-w-lg rounded-md shadow-sm'>
+                  <span className='inline-flex items-center px-3 text-gray-500 bg-gray-50 rounded-l-md border border-r-0 border-gray-300 sm:text-sm'>
                     workcation.com/
                   </span>
                   <input
@@ -47,7 +47,7 @@ export default function Settings() {
                     name='username'
                     id='username'
                     autoComplete='username'
-                    className='flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300'
+                    className='block flex-1 w-full min-w-0 rounded-none rounded-r-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                   />
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function Settings() {
                   id='about'
                   name='about'
                   rows={3}
-                  className='max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                   defaultValue={''}
                 />
                 <p className='mt-2 text-sm text-gray-500'>
@@ -83,9 +83,9 @@ export default function Settings() {
               </label>
               <div className='mt-1 sm:mt-0 sm:col-span-2'>
                 <div className='flex items-center'>
-                  <span className='h-12 w-12 rounded-full overflow-hidden bg-gray-100'>
+                  <span className='overflow-hidden w-12 h-12 bg-gray-100 rounded-full'>
                     <svg
-                      className='h-full w-full text-gray-300'
+                      className='w-full h-full text-gray-300'
                       fill='currentColor'
                       viewBox='0 0 24 24'
                     >
@@ -95,7 +95,7 @@ export default function Settings() {
                   </span>
                   <button
                     type='button'
-                    className='ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                    className='px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                   >
                     Change
                   </button>
@@ -111,10 +111,10 @@ export default function Settings() {
                 Cover photo
               </label>
               <div className='mt-1 sm:mt-0 sm:col-span-2'>
-                <div className='max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md'>
+                <div className='flex justify-center px-6 pt-5 pb-6 max-w-lg rounded-md border-2 border-gray-300 border-dashed'>
                   <div className='space-y-1 text-center'>
                     <svg
-                      className='mx-auto h-12 w-12 text-gray-400'
+                      className='mx-auto w-12 h-12 text-gray-400'
                       stroke='currentColor'
                       fill='none'
                       viewBox='0 0 48 48'
@@ -130,7 +130,7 @@ export default function Settings() {
                     <div className='flex text-sm text-gray-600'>
                       <label
                         htmlFor='file-upload'
-                        className='relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500'
+                        className='relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500'
                       >
                         <span>Upload a file</span>
                         <input
@@ -154,7 +154,7 @@ export default function Settings() {
 
         <div className='pt-8 space-y-6 sm:pt-10 sm:space-y-5'>
           <div>
-            <h3 className='text-lg leading-6 font-medium text-gray-900'>
+            <h3 className='text-lg font-medium leading-6 text-gray-900'>
               Personal Information
             </h3>
             <p className='mt-1 max-w-2xl text-sm text-gray-500'>
@@ -175,7 +175,7 @@ export default function Settings() {
                   name='first-name'
                   id='first-name'
                   autoComplete='given-name'
-                  className='max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm'
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function Settings() {
                   name='last-name'
                   id='last-name'
                   autoComplete='family-name'
-                  className='max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm'
                 />
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function Settings() {
                   name='email'
                   type='email'
                   autoComplete='email'
-                  className='block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
               </div>
             </div>
@@ -228,7 +228,7 @@ export default function Settings() {
                   id='country'
                   name='country'
                   autoComplete='country-name'
-                  className='max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm'
                 >
                   <option>United States</option>
                   <option>Canada</option>
@@ -250,7 +250,7 @@ export default function Settings() {
                   name='street-address'
                   id='street-address'
                   autoComplete='street-address'
-                  className='block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 />
               </div>
             </div>
@@ -268,7 +268,7 @@ export default function Settings() {
                   name='city'
                   id='city'
                   autoComplete='address-level2'
-                  className='max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm'
                 />
               </div>
             </div>
@@ -286,7 +286,7 @@ export default function Settings() {
                   name='region'
                   id='region'
                   autoComplete='address-level1'
-                  className='max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm'
                 />
               </div>
             </div>
@@ -304,16 +304,16 @@ export default function Settings() {
                   name='postal-code'
                   id='postal-code'
                   autoComplete='postal-code'
-                  className='max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md'
+                  className='block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm'
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <div className='divide-y divide-gray-200 pt-8 space-y-6 sm:pt-10 sm:space-y-5'>
+        <div className='pt-8 space-y-6 divide-y divide-gray-200 sm:pt-10 sm:space-y-5'>
           <div>
-            <h3 className='text-lg leading-6 font-medium text-gray-900'>
+            <h3 className='text-lg font-medium leading-6 text-gray-900'>
               Notifications
             </h3>
             <p className='mt-1 max-w-2xl text-sm text-gray-500'>
@@ -321,7 +321,7 @@ export default function Settings() {
               what else you want to hear about.
             </p>
           </div>
-          <div className='space-y-6 sm:space-y-5 divide-y divide-gray-200'>
+          <div className='space-y-6 divide-y divide-gray-200 sm:space-y-5'>
             <div className='pt-6 sm:pt-5'>
               <div role='group' aria-labelledby='label-email'>
                 <div className='sm:grid sm:grid-cols-3 sm:gap-4 sm:items-baseline'>
@@ -334,14 +334,14 @@ export default function Settings() {
                     </div>
                   </div>
                   <div className='mt-4 sm:mt-0 sm:col-span-2'>
-                    <div className='max-w-lg space-y-4'>
-                      <div className='relative flex items-start'>
+                    <div className='space-y-4 max-w-lg'>
+                      <div className='flex relative items-start'>
                         <div className='flex items-center h-5'>
                           <input
                             id='comments'
                             name='comments'
                             type='checkbox'
-                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded'
+                            className='w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500'
                           />
                         </div>
                         <div className='ml-3 text-sm'>
@@ -358,13 +358,13 @@ export default function Settings() {
                         </div>
                       </div>
                       <div>
-                        <div className='relative flex items-start'>
+                        <div className='flex relative items-start'>
                           <div className='flex items-center h-5'>
                             <input
                               id='candidates'
                               name='candidates'
                               type='checkbox'
-                              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded'
+                              className='w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500'
                             />
                           </div>
                           <div className='ml-3 text-sm'>
@@ -381,13 +381,13 @@ export default function Settings() {
                         </div>
                       </div>
                       <div>
-                        <div className='relative flex items-start'>
+                        <div className='flex relative items-start'>
                           <div className='flex items-center h-5'>
                             <input
                               id='offers'
                               name='offers'
                               type='checkbox'
-                              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded'
+                              className='w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500'
                             />
                           </div>
                           <div className='ml-3 text-sm'>
@@ -431,11 +431,11 @@ export default function Settings() {
                             id='push-everything'
                             name='push-notifications'
                             type='radio'
-                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                            className='w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500'
                           />
                           <label
                             htmlFor='push-everything'
-                            className='ml-3 block text-sm font-medium text-gray-700'
+                            className='block ml-3 text-sm font-medium text-gray-700'
                           >
                             Everything
                           </label>
@@ -445,11 +445,11 @@ export default function Settings() {
                             id='push-email'
                             name='push-notifications'
                             type='radio'
-                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                            className='w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500'
                           />
                           <label
                             htmlFor='push-email'
-                            className='ml-3 block text-sm font-medium text-gray-700'
+                            className='block ml-3 text-sm font-medium text-gray-700'
                           >
                             Same as email
                           </label>
@@ -459,11 +459,11 @@ export default function Settings() {
                             id='push-nothing'
                             name='push-notifications'
                             type='radio'
-                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                            className='w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500'
                           />
                           <label
                             htmlFor='push-nothing'
-                            className='ml-3 block text-sm font-medium text-gray-700'
+                            className='block ml-3 text-sm font-medium text-gray-700'
                           >
                             No push notifications
                           </label>
@@ -482,13 +482,13 @@ export default function Settings() {
         <div className='flex justify-end'>
           <button
             type='button'
-            className='bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+            className='px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
           >
             Cancel
           </button>
           <button
             type='submit'
-            className='ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+            className='inline-flex justify-center px-4 py-2 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-md border border-transparent shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
           >
             Save
           </button>

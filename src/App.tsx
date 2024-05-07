@@ -20,6 +20,7 @@ export default function App() {
         <Route path={'/signup'} element={<SignUp />} />
         <Route path='/dashboard' element={<SideNav />}>
           <Route index element={<Dashboard />} />
+          <Route path='patients' element={<Dashboard />} />
           <Route path='settings' element={<Settings />} />
         </Route>
       </Routes>
