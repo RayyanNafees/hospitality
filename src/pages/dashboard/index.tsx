@@ -49,11 +49,13 @@ const transactions: Transaction[] = [
 	// More transactions...
 ];
 
-type DashboardFC = React.FC<{
-	tableRows?: Transaction[];
-	statuses?: typeof statusStyles;
-	topcards?: typeof cards;
-}>;
+type DashboardFC = React.FC<
+	Partial<{
+		tableRows: Transaction[];
+		statuses: typeof statusStyles;
+		topcards: typeof cards;
+	}>
+>;
 
 const Dashboard: DashboardFC = (props) => {
 	const {

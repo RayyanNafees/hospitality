@@ -7,7 +7,7 @@ type PatientStore = {
 	totalPatients: number;
 	fetchPatients: (page?: number, perPage?: number) => Promise<void>;
 	createPatient: (patient: Patient) => Promise<void>;
-}
+};
 
 export const usePatients = create<PatientStore>((set) => ({
 	patients: [],
@@ -24,4 +24,20 @@ export const usePatients = create<PatientStore>((set) => ({
 	},
 	createPatient: async (patient) =>
 		set({ patients: await pb.collection("patients").create(patient) }),
+}));
+
+type ICU = {
+  count: number;
+  fetchICU: () => Promise<void>;
+};
+
+export const useICU = create<ICU>((set) => ({
+	count: 0,
+	fetchICU: async () => {
+		const { icucount } = await pb
+			.collection("icu_count")
+			.getFirstListItem("icucount>0");
+
+		set({ count: icucount });
+	},
 }));

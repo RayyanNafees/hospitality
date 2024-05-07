@@ -1,5 +1,5 @@
 import { cx as classNames } from "classix";
-import type React from "react";
+import { useMemo } from "react";
 import { ScaleIcon, OfficeBuildingIcon } from "@heroicons/react/outline";
 import {
 	CashIcon,
@@ -8,16 +8,8 @@ import {
 } from "@heroicons/react/solid";
 import Topcard from "@/components/dashboard/topcard.tsx";
 import { Link } from "react-router-dom";
-import type {Transaction, TopCard} from '@/lib/dashboard'
-const cards = [
-	{
-		title: "Available ICUs",
-		viewall_href: "/dashboard/icu",
-		icon: ScaleIcon,
-		value: "12/30",
-	},
-	// More items...
-];
+import type { Transaction, TopCard, Patient } from "@/lib/dashboard";
+import { useICU, usePatients } from "@/lib/store";
 
 const statusStyles = {
 	success: "bg-green-100 text-green-800",
@@ -39,13 +31,24 @@ const transactions: Transaction[] = [
 	// More transactions...
 ];
 
-type DashboardFC = React.FC<{
-	tableRows?: Transaction[];
-	topcards?: TopCard[];
-}>;
+const Patients = () => {
+	const patientState = usePatients();
+  const icuCount = useICU(state=>state.count)
 
-const Patients: DashboardFC = (props) => {
-	const { tableRows = transactions, topcards = cards } = props;
+	const tableRows: Patient[] = useMemo(() => {
+		patientState.fetchPatients();
+		return patientState.patients;
+	}, [patientState.patients, patientState.fetchPatients]);
+
+	
+
+  const topcards: TopCard[] = [{
+    title: "Available ICUs",
+    viewall_href: "/dashboard/icu",
+    icon: ScaleIcon,
+    value: `${icuCount}`,
+  }]
+	// const { tableRows = transactions, topcards = cards } = props;
 
 	return (
 		<>
@@ -135,7 +138,7 @@ const Patients: DashboardFC = (props) => {
 							{tableRows.map((transaction) => (
 								<li key={transaction.id}>
 									<Link
-										to={transaction.href}
+										to={transaction.name}
 										className="block px-4 py-4 bg-white hover:bg-gray-50"
 									>
 										<span className="flex items-center space-x-4">
@@ -148,12 +151,12 @@ const Patients: DashboardFC = (props) => {
 													<span className="truncate">{transaction.name}</span>
 													<span>
 														<span className="font-medium text-gray-900">
-															{transaction.amount}
-														</span>{" "}
-														{transaction.currency}
+															{transaction.name}
+														</span>
+														{transaction.name}
 													</span>
-													<time dateTime={transaction.datetime}>
-														{transaction.date}
+													<time dateTime={transaction.name}>
+														{transaction.name}
 													</time>
 												</span>
 											</span>
